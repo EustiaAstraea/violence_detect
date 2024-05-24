@@ -15,4 +15,4 @@ logger = TensorBoardLogger("test_logs", name=log_name)
 
 model = ViolenceClassifier.load_from_checkpoint(ckpt_path)
 trainer = Trainer(accelerator='gpu', devices=gpu_id)
-trainer.test(model, data_module)
+trainer.test(model, data_module) 
