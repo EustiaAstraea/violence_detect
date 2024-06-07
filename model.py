@@ -46,4 +46,4 @@ class ViolenceClassifier(LightningModule):
         logits = self(x)
         acc = self.accuracy(logits, y)
         self.log('test_acc', acc)
-        return loss
+        return acc

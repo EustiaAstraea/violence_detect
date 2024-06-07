@@ -8,8 +8,8 @@ from pytorch_lightning import LightningDataModule
 
 class CustomDataset(Dataset):
     def __init__(self, split):
-        assert split in ["train", "val", "test"]
-        data_root = "C:/Users/28214/Desktop/violence_detect/"
+        assert split in ["train", "val", "test", "noise"]
+        data_root = "./"
         self.data = [os.path.join(data_root, split + '/', i) for i in os.listdir(data_root + split)]
         if split == "train":
             self.transforms = transforms.Compose([
@@ -43,7 +43,7 @@ class CustomDataModule(LightningDataModule):
         # 创建 training, validation数据集
         self.train_dataset = CustomDataset("train")
         self.val_dataset = CustomDataset("val")
-        # self.test_dataset = CustomDataset("test")
+        self.test_dataset = CustomDataset("noise")
 
     def train_dataloader(self):
         return DataLoader(self.train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=self.num_workers)

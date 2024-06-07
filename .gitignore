@@ -1,5 +1,9 @@
-__pycache__
+__pycache__/
+train_logs/
+lightning_logs/
 train/
 val/
 test/
-train_logs/
+*.jpg
+*.png
+*.zip
